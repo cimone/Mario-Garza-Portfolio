@@ -1,0 +1,326 @@
+/*NOTES
+~header has improper padding on gallery pages
+~fix gallery view, open images on click*/
+
+/*---GLOBAL---*/
+body {
+	margin: 0;
+	background-color: #111111;
+	color: #f7f7f7;
+	font-family: 'Montserrat', Arial, sans-serif;
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: .8em;
+}
+
+.flex-container {
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+}
+
+ul {
+	padding-left: 0px;
+}
+
+ul li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #bbb;
+}
+a:hover {
+	/*text-decoration: line-through;*/
+	color: #f7f7f7;
+}
+
+.padding {
+	padding: 1em;
+}
+
+.copyright-notices {
+	font-size: .8em;
+}
+
+.viewport-height {
+	height: 100vh;
+}
+
+.min-viewport-height {
+	min-height: 100vh;
+}
+
+/*---HEADER---*/
+#header {
+	text-transform: uppercase;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	-moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+h1.brand-name {
+	font-size: 1.8em;
+	font-weight: normal;
+	margin: 0;
+}
+
+span#name {
+	color: #f7f7f7;
+}
+
+span#photography {
+	font-weight: 300;
+	color: #bbb;
+}
+
+hr {
+	min-width: 200px;
+}
+
+main {
+
+	flex: 1;
+}
+/*nav*/
+.nav-link-li {
+	display: inline-block;
+	margin-left: 1em;
+}
+
+/*---FOOTER---*/
+#copyright {
+	margin: 0;
+	text-align: center;
+	font-size: .8em;
+}
+
+/*******HOME PAGE*******/
+/*---MAIN---*/
+#main {
+	height: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 0;
+}
+
+.bg-column {
+	flex: 1;
+	position: relative;
+}
+.bg-column:hover > .bg-overlay {
+	opacity: 1;
+}
+.bg-column:hover > .bg-caption {
+	opacity: 1;
+	font-size: 1.2em;
+}
+
+.bg-caption {
+	opacity: 0;
+    text-align: center;
+	padding: 1em;
+	text-transform: uppercase;
+    position: absolute;
+    z-index: 2;  
+    left: 50%;                        /* horizontal alignment */
+    top: 50%;                         /* vertical alignment */
+    transform: translate(-50%, -50%); /* precise centering */
+    transition: 500ms ease;
+    white-space: nowrap;
+  	overflow: hidden;
+}
+
+.bg-overlay {
+	opacity: 0;
+	position:absolute;
+  	top: 0;
+  	right: 0;
+  	left: 0;
+  	bottom: 0;
+	object-fit: cover;
+	background-color: rgba(26,26,26,0.75);
+	z-index: 1;
+	transition: 300ms ease;
+}
+
+.bg-images {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	overflow: hidden;
+	z-index: -1;
+}
+
+/******ABOUT PAGE******/
+/*---MAIN---*/
+#main-about {
+	height: 100%;
+}
+.main-flex {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.about-item {
+	margin: 1em;
+}
+
+.main-text {
+	max-width: 500px;
+}
+
+#bio {
+	margin-bottom: 2em;
+}
+
+#mario-img img {
+	max-height: 500px;
+}
+
+/*CONTACT*/
+#main-contact {
+	/*height: 100%;*/
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+#contact-img {
+	max-width: 700px;
+	width: 100%;
+}
+
+
+/******GALLERIES******/
+.gallery {
+	margin: 0 auto;
+}
+
+.gallery-types {
+	margin: 2em auto 4em auto;
+	text-align: center;
+}
+
+.gallery-images {
+	margin: 0 auto;
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.image {
+	max-height: 400px;
+	padding: .5em;
+}
+
+
+/*******MEDIA QUERIES*******/
+@media screen and (max-width: 880px) { /*xs,s,m*/
+	.flex-container {
+		flex-flow: column nowrap;
+	}
+
+	#nav {
+		display: none;
+	}
+
+	#mario-img img {
+		max-height: 300px;
+	}
+
+	#about-flex, #contact-flex {
+		min-height: 100vh;
+		height: auto;
+	}
+
+	#main-about {
+		flex-flow: column nowrap;
+		justify-content: space-between;
+	}
+
+	#main-about {
+		padding: 0 !important;
+	}
+
+	#mario-bio {
+		padding: 1em;
+	}
+
+	#header {
+		align-items: center;
+		justify-content: center;
+	}
+
+	#main-about {
+		flex-flow: column nowrap;
+    	justify-content: center;
+    	align-items: center;
+	}
+
+	#mario-img img {
+		max-height: 400px;
+	}
+
+	#main-contact {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 879px) { /*xs,s,m*/
+	#main {
+		flex-flow: column nowrap;
+	}
+
+	.flex-item {
+		padding: 1em;
+	}
+
+	.bg-column {
+		max-height: 32.7%;
+		margin-bottom: 3px;
+	}
+
+	#main-about {
+		flex-shrink: 0;
+	}
+
+	.about-item {
+		margin: 0;
+	}
+
+	.image {
+		/*padding: 1em;*/
+		width: 100%;
+		height: initial;
+		max-height: 800px;
+	}
+
+	h1.brand-name {
+		font-size: 1.6em;
+	}
+}
+
+@media screen and (max-width: 350px) { /*xs*/
+	h1.brand-name {
+		font-size: 1.3em;
+	}
+}
+
+
+
+
+
